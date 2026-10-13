@@ -150,6 +150,8 @@ devconnect/
 │   ├── script.js
 │   └── style.css
 ├── components/
+│   ├── sidebar.php
+│   └── topbar.php
 ├── database/
 │   ├── schema.sql
 │   └── seed.sql
@@ -158,6 +160,7 @@ devconnect/
 │   ├── connection.php
 │   ├── csrf.php
 │   └── current_user.php
+├── screenshots/
 ├── .env.example
 ├── .gitignore
 ├── composer.json
