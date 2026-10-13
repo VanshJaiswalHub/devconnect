@@ -1,6 +1,6 @@
 <?php
 
-require "connection.php";
+require __DIR__ . "/includes/connection.php";
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -13,10 +13,12 @@ $row = $result->fetch_assoc();
 
 if($row)
     {
+        // Verify the submitted password against the hashed password stored in the database.
         if(password_verify($password, $row['password']))
             {
                 session_start();
 
+                // Regenerate the session ID after login to help prevent session fixation attacks.
                 session_regenerate_id(true);
 
                 $_SESSION['user_id'] = $row['id'];

@@ -1,9 +1,16 @@
 <?php
-require "auth_check.php";
-require "connection.php";
+require __DIR__ . "/includes/auth_check.php";
+require __DIR__ . '/includes/connection.php';
+require __DIR__ . '/includes/csrf.php';
 
 $userId = $_SESSION['user_id'];
 $content = trim($_POST['content'] ?? '');
+$csrfToken = $_POST['csrf_token'] ?? '';
+
+// Verify CSRF token
+if (!verifyCsrfToken($csrfToken)) {
+    exit("Invalid CSRF token.");
+}
 $imagePath = null;
 
 // Handle image upload if one was provided

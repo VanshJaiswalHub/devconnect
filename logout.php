@@ -8,6 +8,5 @@ session_destroy();
 ?>
 
 <script>
-    alert("Thanks for visiting DevConnect");
-    window.location.href = "authentication_form.php";
+    window.location.href = "index.php";
 </script>

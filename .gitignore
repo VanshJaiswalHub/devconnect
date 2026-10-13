@@ -8,6 +8,7 @@
 
 .DS_Store
 Thumbs.db
+desktop.ini
 
 /assets/uploads/posts/*
 !/assets/uploads/posts/.gitkeep

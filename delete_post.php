@@ -2,11 +2,15 @@
 
 session_start();
 
-require "connection.php";
+require __DIR__ . "/includes/connection.php";
+require __DIR__ . "/includes/auth_check.php";
+require __DIR__ . '/includes/csrf.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: authentication_form.php");
-    exit();
+$csrfToken = $_POST['csrf_token'] ?? '';
+
+// Verify CSRF token
+if (!verifyCsrfToken($csrfToken)) {
+    exit("Invalid CSRF token.");
 }
 
 if (!isset($_POST['post_id'])) {
