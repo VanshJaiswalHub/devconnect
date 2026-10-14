@@ -142,6 +142,8 @@ Do not use real personal data or personal account credentials in demo accounts.
 
 ## Project structure
 
+```text
+
 devconnect/
 |-- assets/
 |   |-- images/
@@ -180,6 +182,7 @@ devconnect/
 |-- register_process.php
 |-- world.php
 `-- README.md
+```
 
 ## Future improvements
 
