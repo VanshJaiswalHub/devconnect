@@ -139,46 +139,47 @@ Before using a public deployment, review authentication, authorization, session 
 
 Do not use real personal data or personal account credentials in demo accounts.
 
+
 ## Project structure
 
 devconnect/
-├── assets/
-│   ├── images/
-│   │   └── demo_posts/
-│   ├── uploads/
-│   │   └── posts/
-│   ├── script.js
-│   └── style.css
-├── components/
-│   ├── sidebar.php
-│   └── topbar.php
-├── database/
-│   ├── schema.sql
-│   └── seed.sql
-├── includes/
-│   ├── auth_check.php
-│   ├── connection.php
-│   ├── csrf.php
-│   └── current_user.php
-├── screenshots/
-├── .env.example
-├── .gitignore
-├── composer.json
-├── composer.lock
-├── authentication_form.php
-├── connections.php
-├── create_post.php
-├── dashboard.php
-├── delete_post.php
-├── follow.php
-├── follow_action.php
-├── index.php
-├── login_process.php
-├── logout.php
-├── my_posts.php
-├── register_process.php
-├── world.php
-└── README.md
+|-- assets/
+|   |-- images/
+|   |   `-- demo_posts/
+|   |-- uploads/
+|   |   `-- posts/
+|   |-- script.js
+|   `-- style.css
+|-- components/
+|   |-- sidebar.php
+|   `-- topbar.php
+|-- database/
+|   |-- schema.sql
+|   `-- seed.sql
+|-- includes/
+|   |-- auth_check.php
+|   |-- connection.php
+|   |-- csrf.php
+|   `-- current_user.php
+|-- screenshots/
+|-- .env.example
+|-- .gitignore
+|-- composer.json
+|-- composer.lock
+|-- authentication_form.php
+|-- connections.php
+|-- create_post.php
+|-- dashboard.php
+|-- delete_post.php
+|-- follow.php
+|-- follow_action.php
+|-- index.php
+|-- login_process.php
+|-- logout.php
+|-- my_posts.php
+|-- register_process.php
+|-- world.php
+`-- README.md
 
 ## Future improvements
 
