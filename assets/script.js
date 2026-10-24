@@ -157,3 +157,74 @@ followButtons.forEach(button => {
         });
 
     }
+
+    /*=====================================================
+    4. Topbar Drawer
+    =====================================================*/
+
+    const sidebar = document.getElementById('appSidebar');
+    const menuButton = document.getElementById('sidebarToggle');
+
+    if (sidebar && menuButton) {
+
+        // Start closed on mobile; open on desktop
+        if (window.innerWidth <= 758) {
+            sidebar.classList.add('sidebar-hidden');
+            document.body.classList.add('sidebar-is-hidden');
+            menuButton.setAttribute('aria-expanded', 'false');
+        }
+
+        menuButton.addEventListener('click', function () {
+            const isHidden = sidebar.classList.toggle('sidebar-hidden');
+
+            document.body.classList.toggle(
+                'sidebar-is-hidden',
+                isHidden
+            );
+
+            menuButton.setAttribute(
+                'aria-expanded',
+                String(!isHidden)
+            );
+        });
+
+    }
+    /*=====================================================
+    5. Index page hamburger
+    =====================================================*/
+
+   document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.getElementById('landingMenuToggle');
+    const navLinks = document.getElementById('landingNavLinks');
+
+    if (!menuButton || !navLinks) {
+        return;
+    }
+
+    menuButton.addEventListener('click', function () {
+        const isOpen = navLinks.classList.toggle('is-open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+});
+
+/*=====================================================
+5.Hamburger autofold
+=====================================================*/
+
+
+document.addEventListener("click", function(event) {
+    const link = event.target.closest("#appSidebar a");
+
+    if (!link || window.innerWidth > 758) {
+        return;
+    }
+
+    const sidebar = document.getElementById("appSidebar");
+    const menuButton = document.getElementById("sidebarToggle");
+
+    if (sidebar && menuButton) {
+        sidebar.classList.add("sidebar-hidden");
+        document.body.classList.add("sidebar-is-hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+    }
+});

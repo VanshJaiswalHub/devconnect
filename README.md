@@ -22,6 +22,7 @@ Explore the live application and its developer community features.
 - Follower and following connections
 - Responsive interface built with Bootstrap and custom CSS
 - CSRF protection for supported actions and output escaping for displayed user content
+- **Mobile-Friendly Navigation:** Responsive sidebar navigation and an adapted World feed layout for smaller screens.
 
 ## Tech stack
 

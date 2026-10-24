@@ -3,12 +3,7 @@
 require_once __DIR__ . '/includes/connection.php';
 
 // Fetch a few recent public posts for the landing page.
-$sql = "SELECT
-            posts.content,
-            posts.image_path,
-            posts.created_at,
-            users.username,
-            users.developer_role
+$sql = "SELECT posts.content, posts.image_path, posts.created_at, users.username, users.developer_role
         FROM posts
         JOIN users ON posts.user_id = users.id
         ORDER BY posts.created_at DESC
@@ -65,41 +60,15 @@ $postCountDisplay = approximateCount($postCount);
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="DevConnect is a developer community where developers can share knowledge, discover other developers and build their professional presence."
-    >
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="assets/style.css"
-    >
-
-    <link
-        rel="icon"
-        href="assets/images/favicon.ico"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevConnect is a developer community where developers can share knowledge, discover other developers and build their professional presence.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <script src="assets/script.js" defer></script>
     <title>DevConnect - Connect. Build. Grow.</title>
-
 </head>
 
 <body class="landing-page">
@@ -111,18 +80,21 @@ $postCountDisplay = approximateCount($postCount);
         <div class="landing-container">
 
             <a href="index.php" class="landing-logo">
-
-                <img
-                    src="assets/images/logo.png"
-                    alt="DevConnect"
-                >
-
+                <img src="assets/images/logo.png" alt="DevConnect">
                 <span>DevConnect</span>
-
             </a>
 
+             <!-- Mobile hamburger -->
+            <button type="button" class="landing-menu-toggle"
+                id="landingMenuToggle"
+                aria-label="Toggle navigation"
+                aria-controls="landingNavLinks"
+                aria-expanded="false"
+            >
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
 
-            <div class="landing-nav-links">
+            <div class="landing-nav-links" id = "landingNavLinks">
 
                 <a href="#community">Community</a>
 
@@ -151,10 +123,7 @@ $postCountDisplay = approximateCount($postCount);
 
             <div class="hero-content">
 
-                <span class="hero-label">
-                    <i class="fa fa-code"></i>
-                    Built for developers
-                </span>
+                <span class="hero-label"> <i class="fa fa-code"></i>Built for developers </span>
 
 
                 <h1>
@@ -579,11 +548,7 @@ $postCountDisplay = approximateCount($postCount);
 
             <div class="landing-logo">
 
-                <img
-                    src="assets/images/logo.png"
-                    alt="DevConnect"
-                >
-
+                <img src="assets/images/logo.png" alt="DevConnect" >
                 <span>DevConnect</span>
 
             </div>

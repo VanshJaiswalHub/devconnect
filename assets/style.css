@@ -163,6 +163,127 @@ body {
     margin-top: 66px;
 }
 
+/* Hamburger button in the topbar */
+.mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Sidebar and animation */
+.sidebar {
+    z-index: 200;
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hidden sidebar */
+.sidebar.sidebar-hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Smooth content adjustment */
+.main-layout,
+.dashboard-main {
+    transition: margin-left 0.3s ease;
+}
+
+/* Desktop: reclaim space when sidebar is hidden */
+body.sidebar-is-hidden .main-layout,
+body.sidebar-is-hidden .dashboard-main {
+    margin-left: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 260px;
+        max-width: 85vw;
+    }
+
+    /* Hide sidebar by default on mobile */
+    .sidebar {
+        transform: translateX(-100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Show sidebar when it is NOT hidden */
+    .sidebar:not(.sidebar-hidden) {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .main-layout,
+    .dashboard-main {
+        margin-left: 0;
+    }
+    .mobile-menu-toggle {
+        display: inline-flex;
+    }
+}
+
+/* Landing-page hamburger: hidden on desktop */
+.landing-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile navigation */
+
+@media (max-width: 768px) {
+    .landing-nav .landing-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .landing-nav .landing-menu-toggle {
+        display: inline-flex;
+    }
+
+    /* Closed by default */
+    .landing-nav .landing-nav-links {
+        display: none !important;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    /* Visible only after the hamburger is clicked */
+    .landing-nav .landing-nav-links.is-open {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-nav .landing-nav-links a {
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
 .dashboard-main {
     margin-left: 15%;
     padding-top: 66px;
@@ -1081,6 +1202,31 @@ body.auth-page {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+
+/* World page: mobile layout */
+@media (max-width: 768px) {
+    .main-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-layout .posts-feed,
+    .main-layout .suggested-panel {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Posts first, suggested people below */
+    .main-layout .posts-feed {
+        order: 1;
+    }
+
+    .main-layout .suggested-panel {
+        order: 2;
+        margin-top: 20px;
+    }
 }
 
 

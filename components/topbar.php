@@ -6,7 +6,18 @@ require_once __DIR__ . '/../includes/current_user.php';
 
 <div class="top-bar d-flex align-items-center justify-content-between">
 
-    <div class="d-flex align-items-center gap-3">
+    <div class="d-flex align-items-center gap-2">
+
+        <!-- Hamburger button -->
+        <button type="button" class="mobile-menu-toggle"
+            id="sidebarToggle"
+            aria-label="Toggle sidebar"
+            aria-controls="appSidebar"
+            aria-expanded="true">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- DevConnect logo -->
         <div class="topbar-icon-btn">
             <a href="dashboard.php" class="d-flex align-items-center gap-2 text-decoration-none text-light">
                 <img src="assets/images/logo.png" alt="DevConnect" width="40" height="40">
